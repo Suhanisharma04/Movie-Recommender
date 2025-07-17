@@ -4,11 +4,11 @@ from sklearn.metrics.pairwise import cosine_similarity
 import gradio as gr
 
 df =pd.read_csv("netflix_titles.csv")
-#print(df.columns)
+print(df.columns)
 df = df[["title", "description", "listed_in"]].dropna()
 df['content'] = df['description'] + " " + df['listed_in']
 df['content'] = df['content'].str.lower()
-#print(df.head())
+print(df.head())
 
 #converting descriptions to vectors
 tfidf = TfidfVectorizer(stop_words='english', ngram_range=(1,2)) #ignoring words like "is" that are common
